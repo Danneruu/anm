@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/anm-website/static/css/main.d20202a4.css",
+    "main.js": "/anm-website/static/js/main.46689fa8.js",
+    "index.html": "/anm-website/index.html",
+    "main.d20202a4.css.map": "/anm-website/static/css/main.d20202a4.css.map",
+    "main.46689fa8.js.map": "/anm-website/static/js/main.46689fa8.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d20202a4.css",
+    "static/js/main.46689fa8.js"
+  ]
+}
