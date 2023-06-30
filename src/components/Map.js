@@ -21,7 +21,7 @@ const MapContainer = ({ city }) => {
 
     return (
         <LoadScript
-            googleMapsApiKey=''>
+            googleMapsApiKey='GOOGLE_API_KEY'>
             {loadingMap ? (
                 <Spinner animation="border" role="status">
                     <span className="visually-hidden">Loading...</span>

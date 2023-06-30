@@ -9,7 +9,7 @@ export async function getCityCoordinates(cityName) {
         params: {
             q: cityName,
             maxRows: 1,
-            username: '',
+            username: 'GEO_NAMES_USERNAME',
         },
     });
 
@@ -24,7 +24,7 @@ export async function getEarthquakesByCity(city) {
             south: parseFloat(city.south),
             east: parseFloat(city.east),
             west: parseFloat(city.west),
-            username: '',
+            username: 'GEO_NAMES_USERNAME',
         },
     });
 
@@ -36,7 +36,7 @@ export async function getPlaceName(lat, lng) {
         params: {
             lat,
             lng,
-            username: '',
+            username: 'GEO_NAMES_USERNAME',
         },
     });
 
