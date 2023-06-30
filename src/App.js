@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
-import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Test from './components/Test';
 import Map from './components/Map';
 
 function App() {
     const [location, setLocation] = useState('');
-
-    const handleInputChange = (event) => {
-        setLocation(event.target.value);
-    };
+    const [city, setCity] = useState({ north: 0, south: 0, east: 0, west: 0 });
+    const [earthquakes, setEarthquakes] = useState([]);
+    const [searchHistory, setSearchHistory] = useState([]);
+    const [loadingMap, setLoadingMap] = useState(false);
 
     return (
         <div className="App">
-            <input type="text" value={location} onChange={handleInputChange} placeholder="Enter a location" />
-            <Test location={location} />
-            <Map />
+            <div className="container-fluid">
+                <div className="row">
+                    <div className="col-lg-6" style={{ overflowY: 'auto', maxHeight: '90vh' }}>
+                        <Test location={location} setLocation={setLocation} setCity={setCity} setEarthquakes={setEarthquakes} earthquakes={earthquakes} searchHistory={searchHistory} setSearchHistory={setSearchHistory} />
+                    </div>
+                    <div className="col-lg-6">
+                        <Map city={city} loadingMap={loadingMap} setLoadingMap={setLoadingMap} />
+                    </div>
+                </div>
+            </div>
         </div>
     );
 }

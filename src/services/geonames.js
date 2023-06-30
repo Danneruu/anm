@@ -2,6 +2,7 @@ import axios from 'axios';
 
 const EARTHQUAKES_API_URL = 'http://api.geonames.org/earthquakesJSON?';
 const CITY_API_URL = 'http://api.geonames.org/searchJSON';
+const PLACE_NAME_API_URL = 'http://api.geonames.org/findNearbyPlaceNameJSON';
 
 export async function getCityCoordinates(cityName) {
     const response = await axios.get(CITY_API_URL, {
@@ -12,19 +13,34 @@ export async function getCityCoordinates(cityName) {
         },
     });
 
+    console.log('Geonames API Response:', response.data);
     return response.data.geonames[0];
 }
 
 export async function getEarthquakesByCity(city) {
     const response = await axios.get(EARTHQUAKES_API_URL, {
         params: {
-            north: city.north,
-            south: city.south,
-            east: city.east,
-            west: city.west,
+            north: parseFloat(city.north),
+            south: parseFloat(city.south),
+            east: parseFloat(city.east),
+            west: parseFloat(city.west),
             username: 'dannylt',
         },
     });
 
     return response.data;
 }
+
+export async function getPlaceName(lat, lng) {
+    const response = await axios.get(PLACE_NAME_API_URL, {
+        params: {
+            lat,
+            lng,
+            username: 'dannylt',
+        },
+    });
+
+    return response.data.geonames[0]?.name;
+}
+
+
